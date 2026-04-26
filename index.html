@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nikunj Mattoo — AI Product Architect</title>
+<meta name="description" content="AI Product Architect specializing in agents, conversational AI, and memory & retrieval systems. 13 years of shipping production AI." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,30..100&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --paper: #F2EFE8;
+    --paper-warm: #ECE7DC;
+    --ink: #15130F;
+    --ink-soft: #4A463E;
+    --ink-mute: #8C8678;
+    --rust: #8E2F1E;
+    --rust-deep: #5E1F12;
+    --rule: #C8C2B3;
+    --rule-soft: #D9D4C5;
+
+    --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+    --sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, sans-serif;
+    --mono: "Geist Mono", "SF Mono", Menlo, monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 400;
+    line-height: 1.55;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-image:
+      radial-gradient(rgba(20,18,14,0.025) 1px, transparent 1px),
+      radial-gradient(rgba(20,18,14,0.018) 1px, transparent 1px);
+    background-size: 32px 32px, 17px 17px;
+    background-position: 0 0, 8px 8px;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: var(--rust); color: var(--paper); }
+
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- HERO ---------- */
+  header.hero {
+    padding: 96px 0 72px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-mute);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--ink-mute);
+  }
+
+  h1.name {
+    font-family: var(--serif);
+    font-weight: 350;
+    font-size: clamp(48px, 8vw, 96px);
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+    margin-bottom: 24px;
+    color: var(--ink);
+  }
+  h1.name em {
+    font-style: italic;
+    font-weight: 350;
+    color: var(--rust-deep);
+    font-variation-settings: "opsz" 144, "SOFT" 80;
+  }
+
+  .title {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: clamp(15px, 1.6vw, 18px);
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+    max-width: 620px;
+  }
+  .title strong { font-weight: 600; color: var(--ink); }
+
+  .lanes {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-mute);
+    margin-top: 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .lanes span { color: var(--ink); font-weight: 500; }
+
+  .contact {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .contact a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 1px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .contact a:hover { color: var(--rust); border-color: var(--rust); }
+
+  /* ---------- SECTION GENERAL ---------- */
+  section {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  section:last-of-type { border-bottom: none; }
+
+  .label {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--rust);
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .label::before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--rust);
+  }
+
+  /* ---------- SUMMARY ---------- */
+  .summary p {
+    font-family: var(--serif);
+    font-weight: 350;
+    font-size: clamp(20px, 2.4vw, 26px);
+    line-height: 1.45;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    font-variation-settings: "opsz" 36;
+    max-width: 740px;
+  }
+  .summary p + p { margin-top: 28px; }
+  .summary em {
+    font-style: italic;
+    color: var(--rust-deep);
+    font-variation-settings: "opsz" 36, "SOFT" 60;
+  }
+
+  /* ---------- PRACTICE ---------- */
+  .practice-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--rule-soft);
+    border: 1px solid var(--rule-soft);
+  }
+  .practice-card {
+    background: var(--paper);
+    padding: 32px 28px;
+    transition: background 0.3s;
+  }
+  .practice-card:hover { background: var(--paper-warm); }
+
+  .practice-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-mute);
+    margin-bottom: 14px;
+    letter-spacing: 0.06em;
+  }
+  .practice-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.15;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+    font-variation-settings: "opsz" 48;
+  }
+  .practice-body {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- WORK ---------- */
+  .work-list { display: flex; flex-direction: column; }
+
+  .work-item {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 32px;
+    padding: 36px 0;
+    border-top: 1px solid var(--rule-soft);
+    align-items: baseline;
+  }
+  .work-item:first-child { border-top: none; padding-top: 0; }
+
+  .work-year {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink-mute);
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+    padding-top: 4px;
+  }
+
+  .work-role {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.25;
+    margin-bottom: 4px;
+    letter-spacing: -0.005em;
+    font-variation-settings: "opsz" 40;
+  }
+  .work-role .at {
+    color: var(--ink-mute);
+    font-style: italic;
+  }
+  .work-org {
+    color: var(--rust-deep);
+    font-style: italic;
+  }
+  .work-blurb {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin-top: 12px;
+    max-width: 640px;
+  }
+  .work-blurb strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .work-numbers {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .work-numbers span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .work-numbers span::before {
+    content: "→";
+    color: var(--rust);
+    font-family: var(--mono);
+  }
+  .work-numbers strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* ---------- PULL ---------- */
+  .pull {
+    text-align: center;
+    padding: 96px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .pull blockquote {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(24px, 3.2vw, 36px);
+    line-height: 1.25;
+    color: var(--ink);
+    max-width: 720px;
+    margin: 0 auto;
+    letter-spacing: -0.01em;
+    font-variation-settings: "opsz" 96, "SOFT" 80;
+    position: relative;
+  }
+  .pull blockquote::before,
+  .pull blockquote::after {
+    color: var(--rust);
+    font-family: var(--serif);
+    font-style: normal;
+  }
+  .pull blockquote::before { content: "“"; margin-right: 4px; }
+  .pull blockquote::after { content: "”"; margin-left: 2px; }
+
+  .pull cite {
+    display: block;
+    margin-top: 24px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-style: normal;
+  }
+
+  /* ---------- CONTACT BLOCK ---------- */
+  .contact-block {
+    padding: 96px 0 64px;
+  }
+  .contact-block .label { color: var(--rust); }
+  .contact-headline {
+    font-family: var(--serif);
+    font-weight: 350;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin-bottom: 28px;
+    max-width: 660px;
+    font-variation-settings: "opsz" 96;
+  }
+  .contact-headline em {
+    font-style: italic;
+    color: var(--rust-deep);
+  }
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 14px;
+  }
+  .contact-list a {
+    color: var(--ink);
+    text-decoration: none;
+    padding: 4px 0;
+    border-bottom: 1px solid transparent;
+    width: fit-content;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .contact-list a:hover { color: var(--rust); border-bottom-color: var(--rust); }
+  .contact-list .muted {
+    color: var(--ink-mute);
+    font-size: 12px;
+    margin-right: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    padding: 32px 0 48px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+  footer .wrap {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px 32px;
+  }
+
+  /* ---------- ANIMATION ---------- */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  header.hero > .wrap > * { animation: fadeUp 0.7s ease-out backwards; }
+  header.hero > .wrap > .eyebrow  { animation-delay: 0.05s; }
+  header.hero > .wrap > .name     { animation-delay: 0.15s; }
+  header.hero > .wrap > .title    { animation-delay: 0.30s; }
+  header.hero > .wrap > .title-2  { animation-delay: 0.35s; }
+  header.hero > .wrap > .lanes    { animation-delay: 0.45s; }
+  header.hero > .wrap > .contact  { animation-delay: 0.60s; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 720px) {
+    header.hero { padding: 64px 0 48px; }
+    section { padding: 56px 0; }
+    .pull { padding: 72px 0; }
+    .practice-grid { grid-template-columns: 1fr; }
+    .work-item {
+      grid-template-columns: 1fr;
+      gap: 8px;
+      padding: 28px 0;
+    }
+    .work-year { padding-top: 0; }
+    .contact-block { padding: 72px 0 48px; }
+  }
+
+  /* ---------- PRINT ---------- */
+  @media print {
+    body { background: white; color: black; }
+    section, header.hero { padding: 24px 0; border-color: #999; }
+    .pull { display: none; }
+    a { color: black; text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Nikunj Mattoo · Bengaluru, India</div>
+    <h1 class="name">Builds <em>thinking</em> systems<br/>for thinking products.</h1>
+    <p class="title"><strong>AI Product Architect.</strong> Thirteen years shipping production AI with measured business impact — from a patented recommendation system at Lenskart to India's first AI skin-diagnostic at Times Internet to conversational matchmaking at Common Friend.</p>
+    <p class="title title-2">Today: independent practice in agents, conversational AI, and memory &amp; retrieval. Hands-on technical contributor (Next.js, FastAPI/Python, LLM systems, RAG). Senior individual contributor by preference — closer to the code than to the org chart.</p>
+    <div class="lanes">Practice — <span>Agents · Conversational AI · Memory · Retrieval</span></div>
+    <div class="contact">
+      <a href="mailto:nikunj.mattoo@gmail.com">nikunj.mattoo@gmail.com</a>
+      <a href="tel:+918971711222">+91 89717 11222</a>
+    </div>
+  </div>
+</header>
+
+<section class="summary">
+  <div class="wrap">
+    <div class="label">Position</div>
+    <p>I sit at an unusual seam — a senior product leader who actually <em>writes the code</em>. Most product people who claim AI fluency are reading papers. Most engineers who can ship LLM systems haven't owned a P&amp;L, a 90-person org, or a Boardroom.</p>
+    <p>The work I take on lives at that seam: agent systems, dialogue architectures, memory and retrieval — designed end-to-end, then built.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="label">Practice areas</div>
+    <div class="practice-grid">
+      <div class="practice-card">
+        <div class="practice-num">01</div>
+        <h3 class="practice-title">Agents &amp; conversational AI</h3>
+        <p class="practice-body">Multi-turn dialogue systems, intent detection, entity extraction, tool and action orchestration, schema-driven conversation graphs. Designing how language models <em>decide</em>, not just respond.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-num">02</div>
+        <h3 class="practice-title">Memory &amp; retrieval</h3>
+        <p class="practice-body">Long-term memory architectures, session-level attention, multi-level document RAG, evaluation pipelines. Measured retrieval-quality lifts of <strong>+8% to +10%</strong> over baseline in production work.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-num">03</div>
+        <h3 class="practice-title">0→1 product execution</h3>
+        <p class="practice-body">Next.js 14 frontend. FastAPI/Python backend. KMS-backed encryption. Tiered subscription systems. Alembic migration discipline. Test→prod rigor. Production-grade engineering practice from a one-person team upward.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-num">04</div>
+        <h3 class="practice-title">AI product strategy</h3>
+        <p class="practice-body">Thirteen years of judgment about which AI ideas earn their place in a roadmap and which get pulled mid-flight. Patent applied. Category-first launches. Conversion lifts in the 15–35% range. One founder exit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="label">Selected work</div>
+    <div class="work-list">
+
+      <div class="work-item">
+        <div class="work-year">2025 —<br/>Present</div>
+        <div>
+          <div class="work-role">Independent AI Consultant <span class="at">·</span> <span class="work-org">agents, dialogue, memory</span></div>
+          <p class="work-blurb">Project-based work across agent systems, dialogue architectures, and retrieval. Architect and build — product strategy through production code. Designed memory and retrieval architectures with measured retrieval-quality lifts. Built B2C SaaS end-to-end on Next.js / FastAPI / Python.</p>
+        </div>
+      </div>
+
+      <div class="work-item">
+        <div class="work-year">2023 —<br/>2025</div>
+        <div>
+          <div class="work-role">Founder &amp; CEO <span class="at">·</span> <span class="work-org">Common Friend</span></div>
+          <p class="work-blurb">AI-powered matchmaking. Designed a daily-question engine with forced binary answering and asymmetric commitment — answers can be hidden but not changed — that replaced traditional form-based onboarding. Built an AI icebreaker bot that read each mutual match's shared answer vector and generated openers, closing the "what do I say" friction that breaks most matchmaking funnels.</p>
+          <div class="work-numbers">
+            <span><strong>4,000 users</strong></span>
+            <span><strong>80% retention</strong></span>
+            <span><strong>51-question signal bank</strong></span>
+            <span><strong>Seed-funded</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-item">
+        <div class="work-year">2021 —<br/>2023</div>
+        <div>
+          <div class="work-role">Product Head, MensXP <span class="at">·</span> <span class="work-org">Times Internet</span></div>
+          <p class="work-blurb">Led product and design for MensXP. Owned $2M budget and full e-commerce P&amp;L. Launched <strong>India's first AI skin-diagnostic tool</strong> — a computer-vision classifier for six skin conditions. Took feature engagement from ~10% to 35%. Deployed an ML personalization engine driving sales growth.</p>
+          <div class="work-numbers">
+            <span><strong>+35% conversion</strong></span>
+            <span><strong>+25% engagement</strong></span>
+            <span><strong>+25% sales</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-item">
+        <div class="work-year">2018 —<br/>2021</div>
+        <div>
+          <div class="work-role">Group Product Manager, Online <span class="at">·</span> <span class="work-org">Lenskart</span></div>
+          <p class="work-blurb">Led the online product organization (~90 people across mobile, web, design, data science, QA). Built the patented <strong>Frame Size recommendation system</strong> (patent applied) — eyewear's only online fit predictor. Featured in SoftBank portfolio achievements; presented to SoftBank leadership and the Lenskart board. Proved causality through 4-day on/off sale cycles: disabling the feature drove a 15–25% digital sales drop; enabling it restored the curve. Ran a Diwali Smile-Discount campaign with ML smile detection — pulled from production after offline staff began coaching customers to smile for discounts, cannibalizing full-margin sales.</p>
+          <div class="work-numbers">
+            <span><strong>+20% online sales</strong></span>
+            <span><strong>+15% AR try-on conversion</strong></span>
+            <span><strong>3-day → 1-day delivery</strong></span>
+            <span><strong>"10x Thinking" award</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-item">
+        <div class="work-year">2014 —<br/>2018</div>
+        <div>
+          <div class="work-role">Founder <span class="at">·</span> <span class="work-org">Pluggd</span></div>
+          <p class="work-blurb">Founded and scaled a profitable media-tech business with a team of 12. Built a data-driven content recommendation engine. Negotiated a strategic acquisition.</p>
+          <div class="work-numbers">
+            <span><strong>3× return to seed investor</strong></span>
+            <span><strong>Profitable at exit</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-item">
+        <div class="work-year">2011 —<br/>2014</div>
+        <div>
+          <div class="work-role">Director, Branded Digital Products <span class="at">·</span> <span class="work-org">WPP / GroupM / Mindshare</span></div>
+          <p class="work-blurb">Introduced a service-based revenue line to a media shop that sold only on inventory. Built a $2M+ new revenue stream selling technology products directly to Fortune 500 brands. Held the highest billing-to-revenue strike rate in the peer group. Pioneered a developer ecosystem connecting brands with vetted technical talent; deployed AI-driven ad targeting.</p>
+        </div>
+      </div>
+
+      <div class="work-item">
+        <div class="work-year">2006 —<br/>2011</div>
+        <div>
+          <div class="work-role">Earlier <span class="at">·</span> <span class="work-org">CanvasM, Mahindra British Telecom</span></div>
+          <p class="work-blurb">Product Manager at CanvasM (AT&amp;T account — ~15% of company revenue). Technical Lead at Mahindra British Telecom (British Telecom, Alcatel-Lucent, AT&amp;T) — led a team of six on OPNET network simulation.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="pull">
+  <div class="wrap">
+    <blockquote>What you've built, our 25-member team has not built. We're writing wrappers. You're building systems.</blockquote>
+    <cite>— Industry peer, off the record</cite>
+  </div>
+</section>
+
+<section class="contact-block">
+  <div class="wrap">
+    <div class="label">Get in touch</div>
+    <h2 class="contact-headline">Open to senior <em>individual contributor</em> roles in agents, conversational AI, and memory &amp; retrieval. Bengaluru or remote.</h2>
+    <div class="contact-list">
+      <a href="mailto:nikunj.mattoo@gmail.com"><span class="muted">Email</span> nikunj.mattoo@gmail.com</a>
+      <a href="tel:+918971711222"><span class="muted">Phone</span> +91 89717 11222</a>
+      <a><span class="muted">Resume</span> Available on request</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© Nikunj Mattoo</span>
+    <span>Built quietly. No tracking. No analytics.</span>
+  </div>
+</footer>
+
+</body>
+</html>
